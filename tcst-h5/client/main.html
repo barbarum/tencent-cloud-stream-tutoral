@@ -1,0 +1,43 @@
+<head>
+  <title>TCST | H5</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <h1>腾讯云直播H5测试!</h1>
+
+  <div id="id_test_video" style="width:100%; height:auto;"></div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script>
+     $(function(){
+
+       /*
+        rtmp播放地址:rtmp://3891.liveplay.myqcloud.com/live/3891_user_7653f7df_25e9
+        flv播放地址:http://3891.liveplay.myqcloud.com/live/3891_user_7653f7df_25e9.flv
+        hls播放地址:http://3891.liveplay.myqcloud.com/live/3891_user_7653f7df_25e9.m3u8
+        低延时播放地址:rtmp://3891.liveplay.myqcloud.com/live/3891_user_7653f7df_25e9?bizid=3891&txSecret=cd4bca77598281dfbcb6b204cc8a9069&txTime=5E50CD9E
+       */
+        var player = new TcPlayer('id_test_video', {
+        "m3u8": "http://3891.liveplay.myqcloud.com/live/3891_user_7653f7df_25e9.m3u8", //请替换成实际可用的播放地址
+        // "m3u8_hd": "http://3891.liveplay.myqcloud.com/live/3891_user_7653f7df_25e9_900.m3u8", //请替换成实际可用的播放地址
+        // "m3u8_sd": "http://3891.liveplay.myqcloud.com/live/3891_user_7653f7df_25e9_550.m3u8", //请替换成实际可用的播放地址
+        // "rtmp": "rtmp://3891.liveplay.myqcloud.com/live/3891_user_7653f7df_25e9?bizid=3891&txSecret=cd4bca77598281dfbcb6b204cc8a9069&txTime=5E50CD9E",
+        // "flv": "http://3891.liveplay.myqcloud.com/live/3891_user_7653f7df_25e9.flv",
+        "autoplay" : true,      //iOS 下 safari 浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
+        "poster" : "https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/product/mlvb/css/img/function/function-5.png",
+        "width" :  '225',//视频的显示宽度，请尽量使用视频分辨率宽度
+        "height" : '487',//视频的显示高度，请尽量使用视频分辨率高度
+        "live": true,
+        "wording": {
+                        2032: "请求视频失败，请检查网络",
+                        2048: "请求m3u8文件失败，可能是网络错误或者跨域问题"
+                    }
+        });
+     })
+  </script>
+</body>

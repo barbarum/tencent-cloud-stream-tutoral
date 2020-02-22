@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  mall-indexer:
+    image: tencent-cloud-stream-tutoral:0.0.1
+    hostname: tcst
+    container_name: tcst-${USER}
+    volumes:
+      - ".:/opt/app/tencent-cloud-stream-tutoral"
+    ports: 
+      - 3000:3000
+    working_dir: /opt/app/tencent-cloud-stream-tutoral
+    entrypoint:
+      - bash 
+      - -c 
+      - cd tcst-h5 && meteor --settings settings.json --allow-superuser
