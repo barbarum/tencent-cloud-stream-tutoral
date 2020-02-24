@@ -30,10 +30,8 @@ Template.stream.helpers({
 
 Template.stream.events({
   'change input'(event, instance) {
-    instance.url.set($(event.currentTarget).val())
-    instance.player.load(instance.url.get())
-    // console.info("instance.url")
-    // window.player.load(instance.url.get())
+    instance.url.set($(event.currentTarget).val());
+    instance.player.load(instance.url.get());
   }
 });
 

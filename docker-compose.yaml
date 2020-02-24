@@ -5,6 +5,8 @@ services:
     image: tencent-cloud-stream-tutoral:0.0.1
     hostname: tcst
     container_name: tcst-${USER}
+    # networks:
+    #   extnetwork:
     volumes:
       - ".:/opt/app/tencent-cloud-stream-tutoral"
     ports: 
@@ -14,3 +16,10 @@ services:
       - bash 
       - -c 
       - cd tcst-h5 && meteor --settings settings.json --allow-superuser
+
+# networks:
+#   extnetwork:
+#     driver: bridge
+#     ipam:
+#         config:
+#         - subnet: 172.58.0.0/16
